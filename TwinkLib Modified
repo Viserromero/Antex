@@ -696,26 +696,20 @@ function UILibrary.Load(GUITitle)
 		end
 		
     		function PageLibrary.AddTest(Text, Callback)
-		local callback = callback or function() end
-		
-			local LabelContainer = Frame()
-			LabelContainer.Name = Text.."BOX"
-			LabelContainer.Size = UDim2.new(1,0,0,20)
-			LabelContainer.BackgroundTransparency = 1
-			LabelContainer.Parent = DisplayPage
-			
-			local LabelForeground = RoundBox(5)
-			LabelForeground.Name = "LabelForeground"
-			LabelForeground.ImageColor3 = Color3.fromRGB(45,45,45)
-			LabelForeground.Size = UDim2.new(1,0,1,0)
-			LabelForeground.Parent = LabelContainer
-			
+			local callback = callback or function() end
+
+			local BoxContainer = Frame()
+			BoxContainer.Name = Text.."BOX"
+			BoxContainer.Size = UDim2.new(1,0,0,20)
+			BoxContainer.BackgroundTransparency = 1
+			BoxContainer.Parent = DisplayPage
+
 			local Box = TextBox(Text, 12)
-			Box.Parent = LabelForeground
-			
+			Box.Parent = BoxContainer
+
 			Box.FocusLost:Connect(function()
-                	Callback()
-            		end)
+				Callback(BoxContainer.Box.Text
+			end)
 		end
     
 		return PageLibrary
