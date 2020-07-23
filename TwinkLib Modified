@@ -701,8 +701,14 @@ function UILibrary.Load(GUITitle)
 			local BoxContainer = Frame()
 			BoxContainer.Name = Text.."BOX"
 			BoxContainer.Size = UDim2.new(1,0,0,20)
-			BoxContainer.BackgroundTransparency = 0
-			BoxContainer.Parent = DisplayPage
+			BoxContainer.BackgroundTransparency = 1
+			BoxContainer.Parent = Parent or DisplayPage
+			
+			local DropdownForeground = RoundBox(5)
+			DropdownForeground.ClipsDescendants = true
+			DropdownForeground.ImageColor3 = Color3.fromRGB(255,255,255)
+			DropdownForeground.Size = UDim2.new(1,0,1,0)
+			DropdownForeground.Parent = BoxContainer
 
 			local Box = TextBox(Text, 12)
 			Box.Parent = BoxContainer
