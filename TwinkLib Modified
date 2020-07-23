@@ -708,7 +708,7 @@ function UILibrary.Load(GUITitle)
 			Box.Parent = BoxContainer
 
 			Box.FocusLost:Connect(function()
-				Callback(BoxContainer.Box.Text
+				Callback(BoxContainer.Box.Text)
 			end)
 		end
     
