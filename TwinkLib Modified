@@ -708,7 +708,7 @@ function UILibrary.Load(GUITitle)
 			LabelForeground.Size = UDim2.new(1,0,1,0)
 			LabelForeground.Parent = LabelContainer
 			
-			local HiddenLabel = TextButton(Text, 12)
+			local HiddenLabel = TextBox(Text, 12)
 			HiddenLabel.Parent = LabelForeground
 		end
     
