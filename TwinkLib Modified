@@ -695,7 +695,7 @@ function UILibrary.Load(GUITitle)
 			end)	
 		end
 		
-    function PageLibrary.AddTest(Text)
+    		function PageLibrary.AddTest(Text)
 			local LabelContainer = Frame()
 			LabelContainer.Name = Text.."LABEL"
 			LabelContainer.Size = UDim2.new(1,0,0,20)
@@ -708,7 +708,7 @@ function UILibrary.Load(GUITitle)
 			LabelForeground.Size = UDim2.new(1,0,1,0)
 			LabelForeground.Parent = LabelContainer
 			
-			local HiddenLabel = TextLabel(Text, 12)
+			local HiddenLabel = TextButton(Text, 12)
 			HiddenLabel.Parent = LabelForeground
 		end
     
