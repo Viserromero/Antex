@@ -695,7 +695,7 @@ function UILibrary.Load(GUITitle)
 			end)	
 		end
     
-    function PageLibrary.AddTextBox(Text, Default, Callback)
+    		function PageLibrary.AddTextBox(Text, Default, Callback)
 			
 			local TextContainer = Frame()
 			DropdownContainer.Size = UDim2.new(1,0,0,20)
@@ -713,9 +713,9 @@ function UILibrary.Load(GUITitle)
 			DropdownLabel.Size = UDim2.new(1,0,0,20)
 			DropdownLabel.Parent = DropdownForeground
 		  
-      			local TB = TextBox(Text, 10)
-      			DropdownLabel.Size = UDim2.new(1,0,0,20)
-			DropdownLabel.Parent = DropdownForeground
+      			local TB = TextBox("Test", 10)
+      			TB.Size = UDim2.new(1,0,0,20)
+			TB.Parent = DropdownForeground
       
 		end
 		
