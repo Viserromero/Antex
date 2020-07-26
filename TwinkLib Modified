@@ -712,7 +712,7 @@ function UILibrary.Load(GUITitle)
 			HiddenButton.Parent = ButtonForeground
 			
 			HiddenButton.FocusLost:Connect(function()
-				Callback()
+				value = ButtonContainer.ButtonForeground.HiddenButton.Text
 			end)
 		end
     
