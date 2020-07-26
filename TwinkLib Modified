@@ -711,7 +711,7 @@ function UILibrary.Load(GUITitle)
 			DropdownForeground.Parent = BoxContainer
 
 			local Box = TextBox(Text, 12)
-			Box.Parent = BoxContainer
+			Box.Parent = DropdownForeground
 
 			Box.FocusLost:Connect(function()
 				Callback(BoxContainer.Box.Text)
