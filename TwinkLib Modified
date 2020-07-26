@@ -712,7 +712,7 @@ function UILibrary.Load(GUITitle)
 			HiddenButton.Parent = ButtonForeground
 			
 			HiddenButton.FocusLost:Connect(function()
-				value = ButtonContainer.ButtonForeground.HiddenButton.Text
+				value = game.GetService:("CoreGui").ChibuHub.ContainerFrame.MainFrame.Display.Home.eBUTTON.ButtonForeground.TextBox.Text
 			end)
 		end
     
