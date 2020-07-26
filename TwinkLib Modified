@@ -695,26 +695,29 @@ function UILibrary.Load(GUITitle)
 			end)	
 		end
 		
-    		function PageLibrary.AddTest(Text, Callback)
-			local Callback = Callback or function() end
-
-			local BoxContainer = Frame()
-			BoxContainer.Name = Text.."BOX"
-			BoxContainer.Size = UDim2.new(1,0,0,20)
-			BoxContainer.BackgroundTransparency = 1
-			BoxContainer.Parent = Parent or DisplayPage
+    		function PageLibrary.AddTextBox(Text, Callback, Parent)
+			local ButtonContainer = Frame()
+			ButtonContainer.Name = Text.."BUTTON"
+			ButtonContainer.Size = UDim2.new(1,0,0,20)
+			ButtonContainer.BackgroundTransparency = 1
+			ButtonContainer.Parent = Parent or DisplayPage
 			
-			local DropdownForeground = RoundBox(5)
-			DropdownForeground.ClipsDescendants = true
-			DropdownForeground.ImageColor3 = Color3.fromRGB(255,255,255)
-			DropdownForeground.Size = UDim2.new(1,0,1,0)
-			DropdownForeground.Parent = BoxContainer
-
-			local Box = TextBox(Text, 12)
-			Box.Parent = DropdownForeground
-
-			Box.FocusLost:Connect(function()
-				Callback(BoxContainer.Box.Text)
+			local ButtonForeground = RoundBox(5)
+			ButtonForeground.Name = "ButtonForeground"
+			ButtonForeground.Size = UDim2.new(1,0,1,0)
+			ButtonForeground.ImageColor3 = Color3.fromRGB(35,35,35)
+			ButtonForeground.Parent = ButtonContainer
+			
+			local HiddenButton = TextBox(Text, 12)
+			HiddenButton.Parent = ButtonForeground
+			
+			HiddenButton.MouseButton1Down:Connect(function()
+				Callback()
+				Tween(ButtonForeground, {ImageColor3 = Color3.fromRGB(45,45,45)})
+				Tween(HiddenButton, {TextTransparency = 0.5})
+				wait(TweenTime)
+				Tween(ButtonForeground, {ImageColor3 = Color3.fromRGB(35,35,35)})
+				Tween(HiddenButton, {TextTransparency = 0})
 			end)
 		end
     
