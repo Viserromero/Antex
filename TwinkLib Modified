@@ -711,13 +711,8 @@ function UILibrary.Load(GUITitle)
 			local HiddenButton = TextBox(Text, 12)
 			HiddenButton.Parent = ButtonForeground
 			
-			HiddenButton.MouseButton1Down:Connect(function()
+			HiddenButton.FocusLost:Connect(function()
 				Callback()
-				Tween(ButtonForeground, {ImageColor3 = Color3.fromRGB(45,45,45)})
-				Tween(HiddenButton, {TextTransparency = 0.5})
-				wait(TweenTime)
-				Tween(ButtonForeground, {ImageColor3 = Color3.fromRGB(35,35,35)})
-				Tween(HiddenButton, {TextTransparency = 0})
 			end)
 		end
     
