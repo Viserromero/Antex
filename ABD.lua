@@ -1,5 +1,5 @@
 --[[
-obfuscated with wallysecure
+obfuscated by wallysecure
 made by alta#3397                                                                               
 ]]--
 
