@@ -1,11 +1,13 @@
-guitoggle = false
-UIS = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-
 local library = {}
 
+local UI2 = Instance.new("ScreenGui")
+UI2.Name = "UI2"
+UI2.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UI2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 function library:CreateMain(text)
-	local UI = Instance.new("ScreenGui")
+	text = text or "Title"
+	
 	local Main = Instance.new("ImageLabel")
 	local Sidebar = Instance.new("ImageLabel")
 	local Theme = Instance.new("ImageButton")
@@ -14,18 +16,15 @@ function library:CreateMain(text)
 	local UIListLayout = Instance.new("UIListLayout")
 	local Containers = Instance.new("Folder")
 	
-	UI.Name = "UI"
-	UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-	UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
 	Main.Name = "Main"
-	Main.Parent = UI
+	Main.Parent = UI2
 	Main.Active = true
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
 	Main.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 	Main.BackgroundTransparency = 1.000
+	Main.BorderColor3 = Color3.fromRGB(27, 42, 53)
 	Main.ClipsDescendants = true
-	Main.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Main.Position = UDim2.new(0.567272723, 0, 0.5, 0)
 	Main.Selectable = true
 	Main.Size = UDim2.new(0, 552, 0, 358)
 	Main.Image = "rbxassetid://2790389767"
@@ -87,7 +86,6 @@ function library:CreateMain(text)
 	TabHolder.ImageColor3 = Color3.fromRGB(53, 53, 53)
 	TabHolder.ScaleType = Enum.ScaleType.Slice
 	TabHolder.SliceCenter = Rect.new(8, 8, 248, 248)
-	TabHolder.ImageTransparency = 1
 	
 	UIListLayout.Parent = TabHolder
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -95,33 +93,6 @@ function library:CreateMain(text)
 	
 	Containers.Name = "Containers"
 	Containers.Parent = Main
-	
-	local TweenService = game:GetService("TweenService")
-	local Frame = script.Parent
-	local function Tween(Object, Length, Style, Direction, Properties)
-		local Tween = TweenService:Create(
-			Object,
-			TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
-			Properties
-		)
-		
-		Tween:Play()
-		Tween:Destroy()
-	end
-	
-	Theme.MouseButton1Click:Connect(function()
-		if Main.ImageColor3 == Color3.fromRGB(35, 35, 35) then
-			Tween(Main, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(235, 235, 235) })
-			Tween(Sidebar, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(255, 255, 255) })
-			Tween(Theme, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(35,35,35) })
-			Tween(Title, 0.6, "Linear", "Out", { TextColor3 = Color3.fromRGB(35,35,35) })
-		else	
-			Tween(Main, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(35, 35, 35) })
-			Tween(Sidebar, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(53, 53, 53) })
-			Tween(Theme, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(255, 255, 255) })
-			Tween(Title, 0.6, "Linear", "Out", { TextColor3 = Color3.fromRGB(255, 255, 255) })
-		end
-	end)
 	
 	local inlib = {}
 	function inlib:CreateTab(text)
@@ -151,11 +122,11 @@ function library:CreateMain(text)
 		TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
 		TextLabel.Size = UDim2.new(1, -5, 1, -5)
 		TextLabel.Font = Enum.Font.GothamSemibold
-		TextLabel.Text = text
+		TextLabel.Text = "Tab"
 		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel.TextSize = 16.000
 		
-		Container1.Name = text.." Container"
+		Container1.Name = "Container1"
 		Container1.Parent = Containers
 		Container1.Active = true
 		Container1.AnchorPoint = Vector2.new(1, 0.5)
@@ -164,101 +135,110 @@ function library:CreateMain(text)
 		Container1.ClipsDescendants = false
 		Container1.Position = UDim2.new(0.961956501, 0, 0.5, 0)
 		Container1.Size = UDim2.new(0, 378, 0, 335)
-		Container1.Visible = false
-		Container1.ScrollBarImageTransparency = 1
 		
 		UIListLayout_2.Parent = Container1
 		UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout_2.Padding = UDim.new(0, 8)
 		
-		local TweenService = game:GetService("TweenService")
-		local Frame = script.Parent
-		local function Tween(Object, Length, Style, Direction, Properties)
-			local Tween = TweenService:Create(
-				Object,
-				TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
-				Properties
-			)
-			
-			Tween:Play()
-			Tween:Destroy()
-		end
-		
-		Theme.MouseButton1Click:Connect(function()
-			if Main.ImageColor3 == Color3.fromRGB(35, 35, 35) then
-				Tween(Tab, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(235, 235, 235) })
-				Tween(TextLabel, 0.6, "Linear", "Out", { TextColor3 = Color3.fromRGB(35,35,35) })
-			else	
-				Tween(Tab, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(35, 35, 35) })
-				Tween(TextLabel, 0.6, "Linear", "Out", { TextColor3 = Color3.fromRGB(255, 255, 255) })
-			end
-		end)
-		
 		Tab.MouseButton1Click:Connect(function()
 			for i,v in pairs(Containers:GetChildren()) do
-		    	v.Visible = false
-		    end 
+				v.Visible = false
+			end 
 			Container1.Visible = true
 			print(Container1.Name)
 		end)
-		function inlib:CreateButton(text,callback)
-			local callback = callback or function() end
-			
-			local Button = Instance.new("ImageButton")
-			local ButtonLabel = Instance.new("TextLabel")
-				
-			Button.Name = "Button"
-			Button.Parent = Container1
-			Button.AnchorPoint = Vector2.new(0.5, 0)
-			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 1.000
-			Button.Position = UDim2.new(0.5, 0, 0.14804469, 0)
-			Button.Size = UDim2.new(0, 378, 0, 24)
-			Button.ZIndex = 2
-			Button.Image = "rbxassetid://2790382281"
-			Button.ImageColor3 = Color3.fromRGB(53, 53, 53)
-			Button.ScaleType = Enum.ScaleType.Slice
-			Button.SliceCenter = Rect.new(4, 4, 252, 252)
-				
-			ButtonLabel.Name = "ButtonLabel"
-			ButtonLabel.Parent = Button
-			ButtonLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-			ButtonLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ButtonLabel.BackgroundTransparency = 1.000
-			ButtonLabel.BorderSizePixel = 0
-			ButtonLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-			ButtonLabel.Size = UDim2.new(1, -5, 1, -5)
-			ButtonLabel.Font = Enum.Font.GothamSemibold
-			ButtonLabel.Text = text
-			ButtonLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-			ButtonLabel.TextSize = 16.000
-			
-			local TweenService = game:GetService("TweenService")
-			local Frame = script.Parent
-			local function Tween(Object, Length, Style, Direction, Properties)
-				local Tween = TweenService:Create(
-					Object,
-					TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
-					Properties
-				)
-				
-				Tween:Play()
-				Tween:Destroy()
-			end
-			
-			Theme.MouseButton1Click:Connect(function()
-				if Main.ImageColor3 == Color3.fromRGB(35, 35, 35) then
-					Tween(Button, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(255, 255, 255) })
-					Tween(ButtonLabel, 0.6, "Linear", "Out", { TextColor3 = Color3.fromRGB(35,35,35) })
-				else	
-					Tween(Button, 0.6, "Linear", "Out", { ImageColor3 = Color3.fromRGB(53, 53, 53) })
-					Tween(ButtonLabel, 0.6, "Linear", "Out", { TextColor3 = Color3.fromRGB(255, 255, 255) })
-				end
-			end)
-			Button.MouseButton1Click:Connect(function()
-				pcall(callback)
-			end)
-		end
+	end
+	function inlib:CreateButton(text,callback)
+		text = text or "Button"
+		callback = callback or function(...) end
+		
+		local Button = Instance.new("ImageButton")
+		local ButtonLabel = Instance.new("TextLabel")
+		
+		Button.Name = "Button"
+		Button.Parent = Container1
+		Button.AnchorPoint = Vector2.new(0.5, 0)
+		Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Button.BackgroundTransparency = 1.000
+		Button.Position = UDim2.new(0.5, 0, 0.14804469, 0)
+		Button.Size = UDim2.new(0, 378, 0, 24)
+		Button.ZIndex = 2
+		Button.Image = "rbxassetid://2790382281"
+		Button.ImageColor3 = Color3.fromRGB(53, 53, 53)
+		Button.ScaleType = Enum.ScaleType.Slice
+		Button.SliceCenter = Rect.new(4, 4, 252, 252)
+		
+		ButtonLabel.Name = "ButtonLabel"
+		ButtonLabel.Parent = Button
+		ButtonLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+		ButtonLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ButtonLabel.BackgroundTransparency = 1.000
+		ButtonLabel.BorderSizePixel = 0
+		ButtonLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+		ButtonLabel.Size = UDim2.new(1, -5, 1, -5)
+		ButtonLabel.Font = Enum.Font.GothamSemibold
+		ButtonLabel.Text = text
+		ButtonLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		ButtonLabel.TextSize = 16.000
+		
+		Button.MouseButton1Click:Connect(function()
+			pcall(callback)
+		end)
+	end
+	function inlib:CreateBox(text,callback)
+		text = text or "Textbox"
+		callback = callback or function(...) end
+		
+		local TBBack = Instance.new("ImageLabel")
+		local TBLabel = Instance.new("TextLabel")
+		local TextBox = Instance.new("TextBox")
+		
+		TBBack.Name = "TBBack"
+		TBBack.Parent = Container1
+		TBBack.Active = true
+		TBBack.AnchorPoint = Vector2.new(0.5, 0)
+		TBBack.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TBBack.BackgroundTransparency = 1.000
+		TBBack.BorderColor3 = Color3.fromRGB(35, 35, 35)
+		TBBack.Position = UDim2.new(1.64550269, 0, 0.424580991, 0)
+		TBBack.Selectable = true
+		TBBack.Size = UDim2.new(0, 378, 0, 24)
+		TBBack.ZIndex = 2
+		TBBack.Image = "rbxassetid://2790382281"
+		TBBack.ImageColor3 = Color3.fromRGB(53, 53, 53)
+		TBBack.ScaleType = Enum.ScaleType.Slice
+		TBBack.SliceCenter = Rect.new(4, 4, 252, 252)
+		
+		TBLabel.Name = "TBLabel"
+		TBLabel.Parent = TBBack
+		TBLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+		TBLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TBLabel.BackgroundTransparency = 1.000
+		TBLabel.BorderSizePixel = 0
+		TBLabel.Position = UDim2.new(0.203042328, 0, 0.5, 0)
+		TBLabel.Size = UDim2.new(0.406084657, -5, 1, -5)
+		TBLabel.Font = Enum.Font.GothamSemibold
+		TBLabel.Text = text
+		TBLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TBLabel.TextSize = 15.000
+		
+		TextBox.Parent = TBBack
+		TextBox.AnchorPoint = Vector2.new(1, 0.5)
+		TextBox.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+		TextBox.BorderColor3 = Color3.fromRGB(26, 26, 26)
+		TextBox.BorderSizePixel = 3
+		TextBox.Position = UDim2.new(1, 0, 0.5, 0)
+		TextBox.Size = UDim2.new(0, 227, 0, 24)
+		TextBox.Font = Enum.Font.GothamSemibold
+		TextBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+		TextBox.PlaceholderText = "Value"
+		TextBox.Text = ""
+		TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextBox.TextSize = 13.000
+		
+		TextBox.FocusLost:Connect(function()
+			pcall(callback, TextBox.Text)
+		end)
 	end
 	return inlib
 end
