@@ -10,12 +10,34 @@ update
 update
 update
 update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
 ]]
 
 wait(7)
-print("Update Commited")
+
 if game.PlaceId == 2686500207 then
-print("Starting")
+print("Updated, Now Starting")
     local humrp = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
     while wait(0.15) do
         for i,v in pairs(game.Workspace.ItFolder:GetChildren()) do
