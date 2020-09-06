@@ -3,10 +3,17 @@ update
 update
 update
 update
+update
+update
+update
+update
+update
+update
+update
 ]]
-print("Update Commited")
-wait(7)
 
+wait(7)
+print("Update Commited")
 if game.PlaceId == 2686500207 then
 print("Starting")
     local humrp = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
