@@ -7,7 +7,7 @@ print("Starting")
         for i,v in pairs(game.Workspace.ItFolder:GetChildren()) do
             if v:IsA "Tool" and v.Name == "Banknote" then
                 v.Handle.Anchored = false
-                wait(0.02)
+                wait(0.05)
                 humrp.CFrame = v.Handle.CFrame
             end
         end
