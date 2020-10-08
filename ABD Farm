@@ -32,12 +32,14 @@ update
 update
 update
 update
+update
+update
+update
 ]]
 
-wait(7)
+wait(7.5)
 
 if game.PlaceId == 2686500207 then
-print("Updated, Now Starting")
     local humrp = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
     while wait(0.15) do
         for i,v in pairs(game.Workspace.ItFolder:GetChildren()) do
@@ -47,9 +49,11 @@ print("Updated, Now Starting")
                 humrp.CFrame = v.Handle.CFrame
             end
         end
+        wait(0.06)
         for i,v in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
             if v:IsA'Tool' and v.Name =='Banknote' then
                 game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(v)
+                wait(0.01)
                 game:GetService("Players").LocalPlayer.Character.Banknote:Activate()
             end
         end
