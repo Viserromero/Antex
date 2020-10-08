@@ -93,12 +93,62 @@ update
 update
 update
 update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
 ]]
 
 wait(7.5)
 
 if game.PlaceId == 2686500207 then
-    print("updated")
+    print("updated again")
     local humrp = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
     if not game.Workspace.ItFolder:FindFirstChild("Banknote") then
         game:GetService("TeleportService"):Teleport(4543641582)
@@ -122,6 +172,11 @@ if game.PlaceId == 2686500207 then
                 game:GetService("Players").LocalPlayer.Character.Banknote:Activate()
             end
         end
+        if not game.Workspace.ItFolder:FindFirstChild("Banknote") then
+            game:GetService("TeleportService"):Teleport(4543641582)
+        end
+    end
+    while wait(0.13) do
         if not game.Workspace.ItFolder:FindFirstChild("Banknote") then
             game:GetService("TeleportService"):Teleport(4543641582)
         end
